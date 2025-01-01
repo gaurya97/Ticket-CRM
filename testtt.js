@@ -13,6 +13,12 @@
   let dropdownLink = document.querySelector(".dropdown-link");
   let Tdropdown = document.querySelector(".Tdropdown");
   
+// Animation
+
+
+
+
+
 
 
   // dropdownLink.onclick = function(event) {
@@ -38,6 +44,16 @@
         Tdropdown.classList.toggle("show");
         if(Tdropdown.classList.contains("show") )
           {
+            gsap.from('.Tdropdown li',{
+              opacity:0,
+              duration:0.5,
+              color:"#111",
+              delay:0.5,
+              y:20,
+              stagger:0.5,
+              // repeat:-1,
+          yoyo:true
+          })
             sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
           sidebar.classList.add("active");
         }
@@ -51,6 +67,19 @@
       dropdownLink.onclick = function(event) {
         event.preventDefault();
         Tdropdown.classList.toggle("show");
+        if(Tdropdown.classList.contains("show")){
+          gsap.from('.Tdropdown li',{
+            opacity:0,
+            duration:0.5,
+            color:"#111",
+            delay:0.5,
+            y:20,
+            stagger:0.5,
+            // repeat:-1,
+        yoyo:true
+        })
+        }
+     
         if(Tdropdown.classList.contains("show") && sidebar.classList.contains("active") )
           {
             sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
